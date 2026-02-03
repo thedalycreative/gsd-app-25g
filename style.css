@@ -1,0 +1,211 @@
+/* ============================================
+   GSD TO-DO APP - STUDENT STARTER STYLES
+   ============================================
+   
+   INSTRUCTIONS FOR STUDENTS:
+   - Add your custom styles below
+   - Override Bootstrap defaults if needed
+   - Make your app unique and beautiful!
+   - Consider colors, fonts, spacing, and animations
+   
+   ============================================ */
+
+/* ============================================
+   CUSTOM VARIABLES (Optional)
+   Use CSS variables for consistent theming
+   ============================================ */
+:root {
+   --primary-color: #0d6efd;
+   --secondary-color: #6c757d;
+   --success-color: #198754;
+   --danger-color: #dc3545;
+   --light-bg: #f8f9fa;
+   --dark-text: #212529;
+}
+
+/* ============================================
+   BODY & GENERAL STYLES
+   ============================================ */
+body {
+   /* TODO: Add background color or gradient */
+   background-color: #f5f5f5;
+   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+   min-height: 100vh;
+}
+
+/* ============================================
+   HEADER STYLES
+   ============================================ */
+header h1 {
+   /* TODO: Customize your header */
+   color: var(--primary-color);
+   font-weight: bold;
+}
+
+header .lead {
+   color: var(--secondary-color);
+}
+
+/* ============================================
+   CARD STYLES
+   ============================================ */
+.card {
+   /* TODO: Add shadows, borders, or rounded corners */
+   border-radius: 10px;
+   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+   border: none;
+}
+
+.card-header {
+   background-color: var(--primary-color);
+   color: white;
+   border-radius: 10px 10px 0 0 !important;
+}
+
+/* ============================================
+   TASK ITEM STYLES
+   ============================================ */
+.list-group-item {
+   /* TODO: Style individual task items */
+   border-left: none;
+   border-right: none;
+   transition: background-color 0.3s ease;
+}
+
+.list-group-item:hover {
+   /* TODO: Add hover effects */
+   background-color: #f8f9fa;
+}
+
+/* Task completed state */
+.task-completed {
+   /* TODO: Style completed tasks (add this class via JavaScript) */
+   text-decoration: line-through;
+   opacity: 0.6;
+}
+
+/* ============================================
+   BUTTON STYLES
+   ============================================ */
+#addTaskBtn {
+   /* TODO: Customize your add button */
+   font-weight: 600;
+   transition: transform 0.2s ease;
+}
+
+#addTaskBtn:hover {
+   transform: scale(1.05);
+}
+
+/* Delete button customization */
+.btn-danger {
+   transition: all 0.3s ease;
+}
+
+.btn-danger:hover {
+   transform: scale(1.1);
+}
+
+/* ============================================
+   INPUT FIELD STYLES
+   ============================================ */
+#taskInput {
+   /* TODO: Style your input field */
+   border: 2px solid #e0e0e0;
+   transition: border-color 0.3s ease;
+}
+
+#taskInput:focus {
+   border-color: var(--primary-color);
+   box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
+}
+
+/* ============================================
+   FILTER BUTTONS
+   ============================================ */
+.btn-group .btn {
+   /* TODO: Style filter buttons */
+   transition: all 0.3s ease;
+}
+
+.btn-group .btn.active {
+   background-color: var(--primary-color);
+   color: white;
+   border-color: var(--primary-color);
+}
+
+/* ============================================
+   FOOTER STYLES
+   ============================================ */
+footer {
+   margin-top: 3rem;
+}
+
+/* ============================================
+   ANIMATIONS (Optional Enhancement)
+   ============================================ */
+
+/* Fade in animation for new tasks */
+@keyframes fadeIn {
+   from {
+      opacity: 0;
+      transform: translateY(-10px);
+   }
+   to {
+      opacity: 1;
+      transform: translateY(0);
+   }
+}
+
+.task-fade-in {
+   animation: fadeIn 0.3s ease-in;
+}
+
+/* Slide out animation for deleted tasks */
+@keyframes slideOut {
+   from {
+      opacity: 1;
+      transform: translateX(0);
+   }
+   to {
+      opacity: 0;
+      transform: translateX(100%);
+   }
+}
+
+.task-slide-out {
+   animation: slideOut 0.3s ease-out;
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+
+/* Mobile devices */
+@media (max-width: 768px) {
+   /* TODO: Add mobile-specific styles */
+   .container {
+      padding: 1rem;
+   }
+   
+   header h1 {
+      font-size: 2rem;
+   }
+   
+   .btn-group {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+   }
+   
+   .btn-group .btn {
+      border-radius: 0.25rem !important;
+      margin-bottom: 0.5rem;
+   }
+}
+
+/* ============================================
+   YOUR CUSTOM STYLES BELOW
+   ============================================ */
+
+/* Add your own creative styles here! */
