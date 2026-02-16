@@ -1,102 +1,168 @@
 <!DOCTYPE html>
 <html lang="en">
+<!--
+  =============================================
+  GSD APP - LOGIN PAGE (login.html)
+  =============================================
+  This page has a login form.
 
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    
-<!---------------CSS STYLE SHEET--------->
-    <link rel="stylesheet" href="signup-style.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
-      integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"/>
-      <title>Skywings: About Us</title>
-    </head>
-  <!---container/navbar-->
-    <body>
-      
-      <div class="container">
-      <div id="navbar-placeholder"></div></div>
+  RIGHT NOW: The form does NOT actually log you in.
+  It just shows an alert message and redirects to the dashboard.
 
-<div class="container">
-  <div class="login-root">
-    <div class="box-root flex-flex flex-direction--column" style="min-height: 100vh;flex-grow: 1;">
-      <div class="loginbackground box-background--white padding-top--64">
-        <div class="loginbackground-gridContainer">
-          <div class="box-root flex-flex" style="grid-area: top / start / 8 / end;">
-            <div class="box-root" style="background-image: linear-gradient(white 0%, rgb(247, 250, 252) 33%); flex-grow: 1;">
-            </div>
-          </div>
-          <div class="box-root flex-flex" style="grid-area: 4 / 2 / auto / 5;">
-            <div class="box-root box-divider--light-all-2 animationLeftRight tans3s" style="flex-grow: 1;"></div>
-          </div>
-          <div class="box-root flex-flex" style="grid-area: 6 / start / auto / 2;">
-            <div class="box-root box-background--blue800" style="flex-grow: 1;"></div>
-          </div>
-          <div class="box-root flex-flex" style="grid-area: 7 / start / auto / 4;">
-            <div class="box-root box-background--blue animationLeftRight" style="flex-grow: 1;"></div>
-          </div>
-          <div class="box-root flex-flex" style="grid-area: 8 / 4 / auto / 6;">
-            <div class="box-root box-background--gray100 animationLeftRight tans3s" style="flex-grow: 1;"></div>
-          </div>
-          <div class="box-root flex-flex" style="grid-area: 2 / 15 / auto / end;">
-            <div class="box-root box-background--cyan200 animationRightLeft tans4s" style="flex-grow: 1;"></div>
-          </div>
-          <div class="box-root flex-flex" style="grid-area: 3 / 14 / auto / end;">
-            <div class="box-root box-background--blue animationRightLeft" style="flex-grow: 1;"></div>
-          </div>
-          <div class="box-root flex-flex" style="grid-area: 4 / 17 / auto / 20;">
-            <div class="box-root box-background--gray100 animationRightLeft tans4s" style="flex-grow: 1;"></div>
-          </div>
-          <div class="box-root flex-flex" style="grid-area: 5 / 14 / auto / 17;">
-            <div class="box-root box-divider--light-all-2 animationRightLeft tans3s" style="flex-grow: 1;"></div>
-          </div>
-        </div>
+  LATER: We will connect this to a backend server
+  so users can actually create accounts and log in.
+
+  WHAT YOU'LL LEARN:
+  - How to build forms with HTML
+  - How to use Bootstrap for form styling
+  - How to handle form submissions with JavaScript
+  - How preventDefault() stops a form from refreshing the page
+  =============================================
+-->
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GSD | Login</title>
+
+  <!-- Favicon -->
+  <link rel="icon" href="images/GSD-icon.png" type="image/png">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@300;500;700&display=swap" rel="stylesheet">
+
+  <!-- Our custom CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="bg-light">
+
+  <!-- ============================================
+       NAVBAR
+       ============================================ -->
+  <nav class="navbar navbar-expand-lg navbar-dark sticky-top py-3">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center" href="index.html">
+        <img src="images/GSD-logo.png" class="logo-icon me-2" alt="GSD logo">
+        <span class="fw-bold fs-3 tracking-tighter text-white">Get Stuff Done!</span>
+      </a>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="signup.html">Sign Up</a></li>
+        </ul>
       </div>
-      <div class="box-root padding-top--24 flex-flex flex-direction--column" style="flex-grow: 1; z-index: 9;">
-        <div class="box-root padding-top--48 padding-bottom--24 flex-flex flex-justifyContent--center">
-          <h1><a href="index.html" rel="dofollow">GSD Account</a></h1>
+    </div>
+  </nav>
+
+  <!-- ============================================
+       LOGIN FORM
+
+       Bootstrap classes used:
+       - "d-flex align-items-center justify-content-center" = center the form
+       - "card" = a styled container with a border and shadow
+       - "form-control" = Bootstrap's styled input fields
+       - "form-label" = Bootstrap's styled labels
+
+       Learn more: https://getbootstrap.com/docs/5.3/forms/overview/
+       ============================================ -->
+  <div class="d-flex align-items-center justify-content-center" style="min-height: 80vh;">
+    <div class="card shadow-sm" style="width: 100%; max-width: 420px;">
+      <div class="card-body p-4">
+
+        <!-- Heading -->
+        <h2 class="text-center mb-1">
+          <i class="bi bi-person-circle text-violet"></i>
+        </h2>
+        <h3 class="text-center mb-4">Login to GSD</h3>
+
+        <!--
+          NOTE FOR STUDENTS:
+          This form is NOT connected to a server yet.
+          When you click "Login", JavaScript will just show a message.
+          We will add real server login in a future lesson!
+        -->
+        <div class="alert alert-info small" role="alert">
+          <i class="bi bi-info-circle me-1"></i>
+          <strong>Demo Mode:</strong> Login is not connected to a server yet.
+          Click "Login" to go straight to the dashboard.
         </div>
-        <div class="formbg-outer">
-          <div class="formbg">
-            <div class="formbg-inner padding-horizontal--48">
-              <span class="padding-bottom--15">Login</span>
-              <form id="stripe-login">
-                <div class="field padding-bottom--24">
-                    <label for="username">Username</label>
-                    <input id="username" type="text" name="username">
-                  </div>
-                <div class="field padding-bottom--24">
-                  <label for="password">Password</label>
-                  <input id="password" type="password" name="password">
-                </div>
-                <div class="field padding-bottom--24">
-                  <input type="submit" name="submit" value="Login" onclick="handleLogin(event)">
-                   <!-- <button type="submit" name="submit" onsubmit="handleSignUpSubmit()">SignUp</button> -->
-                </div>
-           
-              </form>
-            </div>
+
+        <!-- The form element -->
+        <form id="loginForm">
+
+          <!-- Username field -->
+          <div class="mb-3">
+            <label for="username" class="form-label">Username</label>
+            <input type="text" class="form-control" id="username" placeholder="Enter your username">
           </div>
-        </div></div>
-          <div class="footer-link padding-top--24">
-            <span>Don't have an account? <a href="signup.html">Sign Up</a></span>
-            <div class="listing padding-top--24 padding-bottom--24 flex-flex center-center">
-              <span><a href="index.html">© Skwwings</a></span>
-              <span><a href="contact.html">Contact</a></span>
-              <span><a href="error.html">Privacy & terms</a></span>
-            </div>
+
+          <!-- Password field -->
+          <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
+            <input type="password" class="form-control" id="password" placeholder="Enter your password">
           </div>
-        </div>
+
+          <!-- Submit button -->
+          <button type="submit" class="btn btn-violet w-100 mb-3">Login</button>
+
+          <!-- Link to signup page -->
+          <p class="text-center text-muted mb-0">
+            Don't have an account? <a href="signup.html" class="text-violet">Sign Up</a>
+          </p>
+
+        </form>
+      </div>
+
+      <!-- Footer -->
+      <div class="card-footer text-center small text-muted">
+        &copy; 2026 GSD App | <a href="support.html" class="text-muted">Contact</a>
       </div>
     </div>
   </div>
 
-  <script src="main.js"></script>
-</body>
+  <!-- ============================================
+       LOGIN JAVASCRIPT
 
+       This script handles what happens when the user clicks "Login".
+       Right now it just redirects to the dashboard.
+
+       LATER: We will replace this with a real server call (fetch / API).
+       ============================================ -->
+  <script>
+    // Get the form element
+    const loginForm = document.getElementById('loginForm');
+
+    // Listen for the form "submit" event
+    loginForm.addEventListener('submit', function(event) {
+      // preventDefault() stops the form from refreshing the page
+      // This is VERY important when handling forms with JavaScript!
+      // Learn more: https://developer.mozilla.org/en-US/docs/Web/API/Event/preventDefault
+      event.preventDefault();
+
+      // Get the values the user typed
+      const username = document.getElementById('username').value;
+      const password = document.getElementById('password').value;
+
+      // For now, just log it and redirect to the dashboard
+      // TODO: Later, we will send this data to a server using fetch()
+      console.log('Login attempted with:', username);
+
+      // Show a simple message
+      alert('Login is not active yet! Redirecting to dashboard...');
+
+      // Redirect to the dashboard page
+      window.location.href = 'dashboard.html';
+    });
+  </script>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
 </html>
