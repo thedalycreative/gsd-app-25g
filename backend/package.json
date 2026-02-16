@@ -1,4 +1,11 @@
 {
+  "name": "gsd-backend",
+  "version": "1.0.0",
+  "description": "GSD App - Backend Server (Express.js)",
+  "main": "script.js",
+  "scripts": {
+    "start": "node script.js"
+  },
   "dependencies": {
     "cors": "^2.8.6",
     "express": "^5.2.1"

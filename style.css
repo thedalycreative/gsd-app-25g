@@ -1,168 +1,292 @@
- /* Branding Palette */
-    :root {
-       --bg-deep-black: #050505;
-       --bg-light: #ffffff;
-       --bg-soft-grey: #f8f9fa;
-       --bg-soft-purple: #fdfaff;
-       --surface-card: #ffffff;
-       --electric-violet: #8e44ad;
-       --glow-violet: rgba(142, 68, 173, 0.15);
-       --text-dark: #1a1a1a;
-       --text-muted-dark: #666666;
-       --text-white: #ffffff;
-       --text-muted-light: #a0a0a0;
-       --heading-font: 'Space Grotesk', sans-serif;
-       --body-font: 'Inter', sans-serif;
-    }
+/* =============================================
+   GSD APP - STYLESHEET (style.css)
+   =============================================
 
-    body {
-       background-color: var(--bg-light);
-       color: var(--text-dark);
-       font-family: var(--body-font);
-       letter-spacing: -0.01em;
-    }
+   This file controls how the app LOOKS.
+   It works alongside Bootstrap (which handles layout basics).
 
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    .navbar-brand {
-       font-family: var(--heading-font);
-       letter-spacing: -0.03em;
-    }
+   WHAT YOU'LL LEARN:
+   - CSS custom properties (variables) with :root
+   - How to style navbars, buttons, and cards
+   - How to use hover effects and transitions
+   - How to make responsive designs with @media queries
 
-    /* Typography */
-    .fw-black {
-       font-weight: 700;
-    }
+   RESOURCES:
+   - CSS Basics: https://developer.mozilla.org/en-US/docs/Learn/CSS/First_steps
+   - CSS Variables: https://www.w3schools.com/css/css3_variables.asp
+   - CSS Transitions: https://www.w3schools.com/css/css3_transitions.asp
+   - Flexbox Guide: https://css-tricks.com/snippets/css/a-guide-to-flexbox/
 
-    /* Space Grotesk 700 is very heavy */
-    .text-violet {
-       color: var(--electric-violet);
-    }
+   ============================================= */
 
-    .tracking-tighter {
-       letter-spacing: -0.05em;
-    }
 
-    .logo-icon {
-       width: 28px;
-       height: 28px;
-       object-fit: contain;
-    }
+/* =============================================
+   CSS VARIABLES (Custom Properties)
+   =============================================
+   Variables let us define colors/fonts ONCE and reuse them everywhere.
+   They start with -- and are used with var(--name).
 
-    /* Dark Elements (Navbar & Footer) */
-    .navbar {
-       background-color: var(--bg-deep-black);
-       border-bottom: 1px solid #222;
-    }
+   Example: var(--electric-violet) → #8e44ad
 
-    .nav-link {
-       color: var(--text-muted-light) !important;
-       font-weight: 500;
-       transition: color 0.3s ease;
-    }
+   If you want to change the brand color, just change it here
+   and it updates everywhere automatically!
+   ============================================= */
+:root {
+   /* Background colors */
+   --bg-deep-black: #050505;
+   --bg-light: #ffffff;
+   --bg-soft-grey: #f8f9fa;
+   --bg-soft-purple: #fdfaff;
+   --surface-card: #ffffff;
 
-    .nav-link:hover {
-       color: var(--electric-violet) !important;
-    }
+   /* Brand color - the purple/violet used throughout the app */
+   --electric-violet: #8e44ad;
+   --glow-violet: rgba(142, 68, 173, 0.15);
 
-    footer {
-       background-color: var(--bg-deep-black);
-       color: var(--text-muted-light);
-    }
+   /* Text colors */
+   --text-dark: #1a1a1a;
+   --text-muted-dark: #666666;
+   --text-white: #ffffff;
+   --text-muted-light: #a0a0a0;
 
-    /* Hero Section with Background Image */
-    .hero-section {
-       min-height: 80vh;
-       background:
-          linear-gradient(rgba(253, 250, 255, 0.94), rgba(253, 250, 255, 0.88)),
-          url('https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=2070&auto=format&fit=crop');
-       background-size: cover;
-       background-position: center;
-       background-attachment: fixed;
-    }
+   /* Fonts - loaded from Google Fonts in the HTML */
+   --heading-font: 'Space Grotesk', sans-serif;
+   --body-font: 'Inter', sans-serif;
+}
 
-    .hero-section h1 {
-       color: var(--text-dark) !important;
-       font-size: 5.5rem;
-       /* Larger for the display font */
-    }
 
-    /* Feature Cards */
-    .feature-card {
-       background-color: var(--surface-card);
-       border: 1px solid #eee;
-       padding: 2.5rem;
-       border-radius: 20px;
-       transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    }
+/* =============================================
+   BASE STYLES
+   =============================================
+   These apply to the whole page.
+   ============================================= */
 
-    .feature-card:hover {
-       transform: translateY(-8px);
-       border-color: var(--electric-violet);
-       box-shadow: 0 20px 40px var(--glow-violet);
-    }
+/* Body - the default styles for the entire page */
+body {
+   background-color: var(--bg-light);
+   color: var(--text-dark);
+   font-family: var(--body-font);
+   letter-spacing: -0.01em; /* Slightly tighter letter spacing for a modern look */
+}
 
-    /* Buttons */
-    .btn-violet {
-       background-color: var(--electric-violet);
-       color: white;
-       border: none;
-       font-family: var(--heading-font);
-       font-weight: 700;
-       border-radius: 10px;
-       letter-spacing: 0.02em;
-       transition: all 0.3s ease;
-    }
+/* All headings use the Space Grotesk font */
+h1, h2, h3, h4, h5, .navbar-brand {
+   font-family: var(--heading-font);
+   letter-spacing: -0.03em;
+}
 
-    .btn-violet:hover {
-       background-color: #9b59b6;
-       color: white;
-       box-shadow: 0 10px 20px var(--glow-violet);
-       transform: translateY(-2px);
-    }
 
-    .btn-outline-dark {
-       border-radius: 10px;
-       border: 2px solid var(--text-dark);
-       color: var(--text-dark);
-       font-family: var(--heading-font);
-       font-weight: 700;
-    }
+/* =============================================
+   TYPOGRAPHY HELPERS
+   =============================================
+   Custom classes we can add to HTML elements.
+   ============================================= */
 
-    .btn-outline-dark:hover {
-       background-color: var(--text-dark);
-       color: white;
-    }
+/* Makes text extra bold */
+.fw-black {
+   font-weight: 700;
+}
 
-    /* Mockup Container */
-    .mockup-container {
-       background:
-          linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)),
-          url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1964&auto=format&fit=crop');
-       background-size: cover;
-       background-position: center;
-       border-radius: 30px;
-       border: 1px solid #eee;
-       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-       transition: all 0.3s ease;
-       position: relative;
-       overflow: hidden;
-    }
+/* Makes text the brand purple color */
+.text-violet {
+   color: var(--electric-violet);
+}
 
-    .mockup-container:hover {
-       border-color: var(--electric-violet);
-       box-shadow: 0 15px 40px var(--glow-violet);
-    }
+/* Extra tight letter spacing for the logo */
+.tracking-tighter {
+   letter-spacing: -0.05em;
+}
 
-    #how-it-works {
-       background-color: var(--bg-soft-grey);
-    }
+/* Muted text colors */
+.text-muted-dark {
+   color: var(--text-muted-dark);
+}
 
-    @media (max-width: 768px) {
-       .hero-section h1 {
-          font-size: 3.5rem;
-       }
-    }
+.text-muted-light {
+   color: var(--text-muted-light);
+}
+
+
+/* =============================================
+   LOGO
+   ============================================= */
+.logo-icon {
+   width: 28px;
+   height: 28px;
+   object-fit: contain; /* Keeps the image proportions */
+}
+
+
+/* =============================================
+   NAVBAR (Navigation Bar)
+   =============================================
+   The dark bar at the top of every page.
+   We override some Bootstrap defaults here.
+   ============================================= */
+.navbar {
+   background-color: var(--bg-deep-black);
+   border-bottom: 1px solid #222;
+}
+
+/* Nav link default color */
+.nav-link {
+   color: var(--text-muted-light) !important;
+   font-weight: 500;
+   transition: color 0.3s ease; /* Smooth color change on hover */
+}
+
+/* Nav link hover color - turns purple */
+.nav-link:hover {
+   color: var(--electric-violet) !important;
+}
+
+
+/* =============================================
+   FOOTER
+   ============================================= */
+footer {
+   background-color: var(--bg-deep-black);
+   color: var(--text-muted-light);
+}
+
+
+/* =============================================
+   HERO SECTION (Landing Page Banner)
+   =============================================
+   The big banner with the title and buttons.
+   Uses a background image with a white overlay.
+   ============================================= */
+.hero-section {
+   min-height: 80vh; /* At least 80% of the screen height */
+   /* Two backgrounds layered: a semi-transparent white on top of an image */
+   background:
+      linear-gradient(rgba(253, 250, 255, 0.94), rgba(253, 250, 255, 0.88)),
+      url('https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=2070&auto=format&fit=crop');
+   background-size: cover; /* Image fills the whole section */
+   background-position: center;
+   background-attachment: fixed; /* Parallax effect - image stays still while you scroll */
+}
+
+.hero-section h1 {
+   color: var(--text-dark) !important;
+   font-size: 5.5rem;
+}
+
+
+/* =============================================
+   FEATURE CARDS
+   =============================================
+   The three cards in the features section.
+   They have a hover effect that lifts them up.
+   ============================================= */
+.feature-card {
+   background-color: var(--surface-card);
+   border: 1px solid #eee;
+   padding: 2.5rem;
+   border-radius: 20px;
+   /* "transition" makes changes happen smoothly instead of instantly */
+   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* When you hover over a feature card, it lifts up and glows */
+.feature-card:hover {
+   transform: translateY(-8px); /* Move up 8 pixels */
+   border-color: var(--electric-violet);
+   box-shadow: 0 20px 40px var(--glow-violet); /* Purple glow shadow */
+}
+
+
+/* =============================================
+   BUTTONS
+   =============================================
+   Custom button styles that match our brand.
+   These work alongside Bootstrap's .btn class.
+   ============================================= */
+
+/* The main purple button */
+.btn-violet {
+   background-color: var(--electric-violet);
+   color: white;
+   border: none;
+   font-family: var(--heading-font);
+   font-weight: 700;
+   border-radius: 10px;
+   letter-spacing: 0.02em;
+   transition: all 0.3s ease;
+}
+
+.btn-violet:hover {
+   background-color: #9b59b6; /* Slightly lighter purple on hover */
+   color: white;
+   box-shadow: 0 10px 20px var(--glow-violet);
+   transform: translateY(-2px); /* Slight lift effect */
+}
+
+/* The dark outline button */
+.btn-outline-dark {
+   border-radius: 10px;
+   border: 2px solid var(--text-dark);
+   color: var(--text-dark);
+   font-family: var(--heading-font);
+   font-weight: 700;
+}
+
+.btn-outline-dark:hover {
+   background-color: var(--text-dark);
+   color: white;
+}
+
+
+/* =============================================
+   MOCKUP CONTAINER (How It Works section)
+   ============================================= */
+.mockup-container {
+   background:
+      linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)),
+      url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1964&auto=format&fit=crop');
+   background-size: cover;
+   background-position: center;
+   border-radius: 30px;
+   border: 1px solid #eee;
+   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+   transition: all 0.3s ease;
+}
+
+.mockup-container:hover {
+   border-color: var(--electric-violet);
+   box-shadow: 0 15px 40px var(--glow-violet);
+}
+
+/* "How It Works" section background */
+#how-it-works {
+   background-color: var(--bg-soft-grey);
+}
+
+
+/* =============================================
+   DASHBOARD STYLES
+   =============================================
+   Extra styles for the to-do app dashboard.
+   ============================================= */
+
+/* Style for completed tasks - adds a line-through effect */
+.task-completed {
+   opacity: 0.6; /* Makes it slightly transparent */
+}
+
+
+/* =============================================
+   RESPONSIVE DESIGN
+   =============================================
+   @media queries let us change styles based on screen size.
+   This makes the app look good on phones, tablets, AND desktops.
+
+   Learn more: https://www.w3schools.com/css/css_rwd_mediaqueries.asp
+   ============================================= */
+
+/* On screens smaller than 768px (tablets and phones) */
+@media (max-width: 768px) {
+   .hero-section h1 {
+      font-size: 3.5rem; /* Smaller heading on mobile */
+   }
+}
