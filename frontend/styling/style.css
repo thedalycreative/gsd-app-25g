@@ -1,0 +1,168 @@
+ /* Branding Palette */
+    :root {
+       --bg-deep-black: #050505;
+       --bg-light: #ffffff;
+       --bg-soft-grey: #f8f9fa;
+       --bg-soft-purple: #fdfaff;
+       --surface-card: #ffffff;
+       --electric-violet: #8e44ad;
+       --glow-violet: rgba(142, 68, 173, 0.15);
+       --text-dark: #1a1a1a;
+       --text-muted-dark: #666666;
+       --text-white: #ffffff;
+       --text-muted-light: #a0a0a0;
+       --heading-font: 'Space Grotesk', sans-serif;
+       --body-font: 'Inter', sans-serif;
+    }
+
+    body {
+       background-color: var(--bg-light);
+       color: var(--text-dark);
+       font-family: var(--body-font);
+       letter-spacing: -0.01em;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    .navbar-brand {
+       font-family: var(--heading-font);
+       letter-spacing: -0.03em;
+    }
+
+    /* Typography */
+    .fw-black {
+       font-weight: 700;
+    }
+
+    /* Space Grotesk 700 is very heavy */
+    .text-violet {
+       color: var(--electric-violet);
+    }
+
+    .tracking-tighter {
+       letter-spacing: -0.05em;
+    }
+
+    .logo-icon {
+       width: 28px;
+       height: 28px;
+       object-fit: contain;
+    }
+
+    /* Dark Elements (Navbar & Footer) */
+    .navbar {
+       background-color: var(--bg-deep-black);
+       border-bottom: 1px solid #222;
+    }
+
+    .nav-link {
+       color: var(--text-muted-light) !important;
+       font-weight: 500;
+       transition: color 0.3s ease;
+    }
+
+    .nav-link:hover {
+       color: var(--electric-violet) !important;
+    }
+
+    footer {
+       background-color: var(--bg-deep-black);
+       color: var(--text-muted-light);
+    }
+
+    /* Hero Section with Background Image */
+    .hero-section {
+       min-height: 80vh;
+       background:
+          linear-gradient(rgba(253, 250, 255, 0.94), rgba(253, 250, 255, 0.88)),
+          url('https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=2070&auto=format&fit=crop');
+       background-size: cover;
+       background-position: center;
+       background-attachment: fixed;
+    }
+
+    .hero-section h1 {
+       color: var(--text-dark) !important;
+       font-size: 5.5rem;
+       /* Larger for the display font */
+    }
+
+    /* Feature Cards */
+    .feature-card {
+       background-color: var(--surface-card);
+       border: 1px solid #eee;
+       padding: 2.5rem;
+       border-radius: 20px;
+       transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .feature-card:hover {
+       transform: translateY(-8px);
+       border-color: var(--electric-violet);
+       box-shadow: 0 20px 40px var(--glow-violet);
+    }
+
+    /* Buttons */
+    .btn-violet {
+       background-color: var(--electric-violet);
+       color: white;
+       border: none;
+       font-family: var(--heading-font);
+       font-weight: 700;
+       border-radius: 10px;
+       letter-spacing: 0.02em;
+       transition: all 0.3s ease;
+    }
+
+    .btn-violet:hover {
+       background-color: #9b59b6;
+       color: white;
+       box-shadow: 0 10px 20px var(--glow-violet);
+       transform: translateY(-2px);
+    }
+
+    .btn-outline-dark {
+       border-radius: 10px;
+       border: 2px solid var(--text-dark);
+       color: var(--text-dark);
+       font-family: var(--heading-font);
+       font-weight: 700;
+    }
+
+    .btn-outline-dark:hover {
+       background-color: var(--text-dark);
+       color: white;
+    }
+
+    /* Mockup Container */
+    .mockup-container {
+       background:
+          linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)),
+          url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1964&auto=format&fit=crop');
+       background-size: cover;
+       background-position: center;
+       border-radius: 30px;
+       border: 1px solid #eee;
+       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+       transition: all 0.3s ease;
+       position: relative;
+       overflow: hidden;
+    }
+
+    .mockup-container:hover {
+       border-color: var(--electric-violet);
+       box-shadow: 0 15px 40px var(--glow-violet);
+    }
+
+    #how-it-works {
+       background-color: var(--bg-soft-grey);
+    }
+
+    @media (max-width: 768px) {
+       .hero-section h1 {
+          font-size: 3.5rem;
+       }
+    }
